@@ -8,12 +8,12 @@
                     }
             stage('build'){
             steps{
-                     sh "docker build -t ."
+                     sh "docker build -t jenkinsimage ."
                     }
             }
             stage('run'){
             steps{
-                     sh "docker run -d -p 80:5500 jenkins jenkinsimage"
+                     sh "docker run -d -p 80:5500 --name jenkins jenkinsimage"
                 }
             }
         }
